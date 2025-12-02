@@ -1,0 +1,30 @@
+{
+    "name": "action360-copilot-agent",
+    "version": "1.0.0",
+    "description": "Copilot agent for UAT routing recommendations from Azure DevOps work items",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "func start",
+        "test": "jest",
+        "deploy": "func azure functionapp publish <function-app-name>"
+    },
+    "keywords": [
+        "azure",
+        "devops",
+        "copilot",
+        "uat",
+        "routing"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@azure/functions": "^4.5.0",
+        "@azure/identity": "^4.0.0",
+        "azure-devops-node-api": "^12.5.0",
+        "axios": "^1.6.0",
+        "dotenv": "^16.3.1"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0"
+    }
+}
