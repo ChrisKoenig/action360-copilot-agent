@@ -108,20 +108,19 @@ OUTPUT FORMAT
 * Requestor Identity: <email> (<CSU/STU/UNKNOWN>)
 * Routing Reasoning: <bulleted list of reasons why this tag was chosen>
 
-### Section 3: Details per Ask
+### Section 4: Details per Ask
     Ask 1. <Description of the request or feature>
 
-### Section 4: Machine-Readable JSON
-
+### Section 4: Machine-Readable JSON (
 NOTE: ensure the output is "pretty printed" so people can read it as well as having it consumed by a process
 
 SCHEMA:
 
 {
-  "meta": {
-    "runDate": "<current date/time in unix format>",
-    "runThrough": "<note if this was run interactively, or via an API call, if that's knowable. otherwise put UNKNOWN>"
-  },
+"meta": {
+    "runDate" <current date/time in unix format>,
+    "runThrough": <note if this was run interactively, or via an API call, if that's knowable. otherwise put UNKNOWN 
+}
   "requestor": {
     "email": "<email>",
     "name": "<name or UNKNOWN>",
@@ -129,13 +128,16 @@ SCHEMA:
     "team": "<CSU/STU/UNKNOWN>"
   },
   "routing": {
+  {{#if Routing Tag == "DIRECT"}}
+    "assignedTo": "<Assigned Owner>",
+    "priority": "<Priority>",
+    "pTriageType": "<pTriageType>",
+    "areaPath": "<Solution Area>"
+  {{#else}}
     "tag": "Tech RoB | <Routing Tag>",
-    "assignedTo": "<Assigned Owner or null>",
-    "priority": "<Priority or null>",
-    "pTriageType": "<pTriageType or null>",
-    "areaPath": "<Solution Area or null>"
+  {{/if}}
   },
-  "reasoning": ["<bulleted list of reasons why tag/routing was chosen>"],
+  "reasoning": [<bulleted list of reasons why tag/routing was chosen],
   "service": {
     "name": "<Service Name>",
     "solutionArea": "<Solution Area>",
